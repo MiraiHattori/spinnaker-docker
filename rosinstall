@@ -3,6 +3,9 @@
     uri: https://github.com/future731/pointgrey_camera_driver.git
     version: spinnaker-stereo-test
 - git:
+    local-name: ball_orbit_estimator
+    uri: https://github.com/future731/ball_orbit_estimator.git
+- git:
     local-name: jsk_recognition
     uri: https://github.com/jsk-ros-pkg/jsk_recognition.git
 - git:

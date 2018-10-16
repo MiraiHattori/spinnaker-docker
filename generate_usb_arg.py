@@ -11,8 +11,9 @@ try:
     for usb_str in usb_strs:
         usb_bus = usb_str.split()[1]
         usb_port = usb_str.split()[3].rstrip(":")
-        result += "-v /dev/bus/usb/" + usb_bus + "/" + usb_port + \
-                ":/dev/bus/usb/" + usb_bus + "/" + usb_port + " "
+        result += " --device /dev/bus/usb/" + usb_bus + "/" + usb_port + \
+                  " --volume=/dev/bus/usb/" + usb_bus + "/" + usb_port + \
+                  ":/dev/bus/usb/" + usb_bus + "/" + usb_port + " "
 
     print(result)
 

@@ -3,5 +3,5 @@ set -e
 
 # setup ros environment
 source "/home/pointgrey/catkin_ws/devel/setup.bash"
-roslaunch pointgrey_camera_driver stereo.launch
+roslaunch ball_orbit_estimator stereo.launch
 exec "$@"
