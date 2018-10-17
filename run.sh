@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /opt/ros/kinetic/setup.bash
+source /opt/ros/${ROS_DISTRO}/setup.bash
 rossetip
 
 usb_arg=`python3 generate_usb_arg.py`

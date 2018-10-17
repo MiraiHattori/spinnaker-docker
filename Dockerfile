@@ -1,6 +1,6 @@
 FROM osrf/ros:kinetic-desktop-full
 
-ENV WORKHOME /home/pointgrey
+ENV WORKHOME /home/leus
 
 # install ros essential package
 RUN apt-get update -y && apt-get upgrade -y && apt-get install --no-install-recommends -y \
