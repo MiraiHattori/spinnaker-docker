@@ -9,7 +9,7 @@ echo $usb_arg
 
 sudo docker run -it --rm \
     --net=host \
-    -w="/home/pointgrey" \
+    -w="/home/leus" \
     --net="host" \
     --env="ROS_IP" \
     --env="ROS_HOSTNAME" \
