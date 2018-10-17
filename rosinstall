@@ -5,18 +5,3 @@
 - git:
     local-name: ball_orbit_estimator
     uri: https://github.com/future731/ball_orbit_estimator.git
-- git:
-    local-name: jsk_recognition
-    uri: https://github.com/jsk-ros-pkg/jsk_recognition.git
-- git:
-    local-name: image_pipeline
-    uri: https://github.com/ros-perception/image_pipeline.git
-- git:
-    local-name: vision_opencv
-    uri: https://github.com/ros-perception/vision_opencv.git
-- git:
-    local-name: opencv_apps
-    uri: https://github.com/ros-perception/opencv_apps.git
-- git:
-    local-name: jsk_common
-    uri: https://github.com/jsk-ros-pkg/jsk_common.git
