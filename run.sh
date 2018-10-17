@@ -16,7 +16,7 @@ if [ $DISPLAY == "localhost:10.0" ]; then
         --env="ROS_IP" \
         --env="ROS_HOSTNAME" \
         ${usb_arg} \
-    future731/pointgrey_test "$@"
+    future731/ball_orbit_estimator "$@"
 else
     xhost +local:
     sudo docker run -it --rm \
@@ -28,6 +28,6 @@ else
         --env="ROS_IP" \
         --env="ROS_HOSTNAME" \
         ${usb_arg} \
-    future731/pointgrey_test "$@"
+    future731/ball_orbit_estimator "$@"
 fi
 
