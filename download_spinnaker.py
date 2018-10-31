@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import requests
+from tqdm import tqdm
 from bs4 import BeautifulSoup
 import time
 import re
@@ -20,6 +21,7 @@ class Session:
     password = ''
     session = requests.session()
     filename = ''
+    filesize = -1
 
     def __init__(self, email, password):
         self.email = email
@@ -39,20 +41,30 @@ class Session:
         soup = BeautifulSoup(res.content, "html.parser")
 
     def download(self):
-        print("download start.")
-        url_download = self.URL_DOWNLOAD
-        res = self.session.get(url_download, headers=self.HEADERS)
+        res = self.session.head(self.URL_DOWNLOAD, headers=self.HEADERS)
         res.raise_for_status()
-        print("download end.")
+        self.filesize = int(res.headers["Content-Length"])
         self.filename = re.findall(
                 "filename=(.+\.tar\.gz)",
                 res.headers['Content-Disposition']
                 )[0]
-        print("header parsing end. filename={}".format(self.filename))
+        print("header parsing end. filename={}. filesize={}".format(self.filename, self.filesize))
+        print("download start.")
+        url_download = self.URL_DOWNLOAD
+        res = self.session.get(url_download, headers=self.HEADERS, stream=True)
+        res.raise_for_status()
+        self.filename = re.findall(
+                "filename=(.+\.tar\.gz)",
+                res.headers['Content-Disposition']
+                )[0]
         if not os.path.exists('./' + self.filename) and \
                 not not self.filename:
             with open(self.filename, 'wb') as f:
-                f.write(res.content)
+                pbar = tqdm(total=self.filesize, unit="B", unit_scale=True)
+                for chunk in res.iter_content(chunk_size=1024):
+                    f.write(chunk)
+                    pbar.update(len(chunk))
+                pbar.close()
             print('file {} downloaded'.format(self.filename))
 
 session = Session('code@clearpathrobotics.com', 'uNjRxoH6NMsJvi6hyPCH')

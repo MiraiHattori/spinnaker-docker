@@ -7,10 +7,11 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install --no-install-reco
     sudo lsb-release ros-kinetic-catkin python-catkin-tools
 # install spinnaker
 RUN apt-get install --no-install-recommends -y python3 python3-pip
-RUN pip3 install setuptools requests beautifulsoup4
+RUN pip3 install setuptools requests beautifulsoup4 tqdm
 ADD ./download_spinnaker.py ${WORKHOME}/
 ADD ./my_install_spinnaker.sh ${WORKHOME}/
 RUN cd ${WORKHOME} && python3 download_spinnaker.py && tar xvzf *.tar.gz && cd `find . -type d | grep "spinnaker"` && mv ${WORKHOME}/my_install_spinnaker.sh . && ./my_install_spinnaker.sh
+RUN pip3 uninstall setuptools requests beautifulsoup4 tqdm
 RUN apt-get purge -y python3 python3-pip
 
 # install pip
