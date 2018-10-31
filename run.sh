@@ -12,7 +12,7 @@ if [ "$DISPLAY" == "localhost:10.0" ]; then
         --volume="${HOME}/.Xauthority:/root/.Xauthority:rw" \
         -w="/home/leus" \
         --net="host" \
-        --env="ROS_MASTER_URI" \
+        --env ROS_MASTER_URI="${ROS_MASTER_URI}" \
         ${usb_arg} \
     future731/ball_orbit_estimator "$@"
 else
@@ -23,7 +23,7 @@ else
         --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
         -w="/home/leus" \
         --net="host" \
-        --env="ROS_MASTER_URI" \
+        --env ROS_MASTER_URI="${ROS_MASTER_URI}" \
         ${usb_arg} \
     future731/ball_orbit_estimator "$@"
 fi
