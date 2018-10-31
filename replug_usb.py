@@ -12,7 +12,7 @@ try:
         usb_port = usb_str.split()[3].rstrip(":")
         cmd = 'udevadm info --query=path --name=/dev/bus/usb/' + usb_bus + '/' + usb_port
         res = subprocess.check_output(cmd.split()).decode('utf-8')
-        target_usb = re.search(r"/([0-9]+-[0-9]+\.[0-9]+)$", res).group().lstrip('/').rstrip('\n')
+        target_usb = re.search(r"/([0-9]+-[0-9\.]+)$", res).group().lstrip('/').rstrip('\n')
         print("plug out usb {}".format(target_usb))
         with open('/sys/bus/usb/drivers/usb/unbind', 'w') as f:
             f.write(target_usb.rstrip('\n'))
