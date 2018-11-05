@@ -31,10 +31,6 @@ RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && cd ${WORKHOME}/catki
 
 ### local changes ###
 
-RUN mkdir -p ${WORKHOME}/.ros/camera_info
-RUN cp ${WORKHOME}/catkin_ws/src/pointgrey_camera_driver/pointgrey_camera_driver/camera_info/16276501.yaml ${WORKHOME}/.ros/camera_info/
-RUN cp ${WORKHOME}/catkin_ws/src/pointgrey_camera_driver/pointgrey_camera_driver/camera_info/16276527.yaml ${WORKHOME}/.ros/camera_info/
-
 ADD ./my_entrypoint.sh /
 ENTRYPOINT ["/my_entrypoint.sh"]
 CMD ["bash"]
