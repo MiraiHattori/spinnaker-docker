@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 source /opt/ros/${ROS_DISTRO}/setup.bash
+# execute .bashrc if it has "source */setup.bash"
+if [ ! -z "`cat ${HOME}/.bashrc | grep "^source .*setup\.bash *$"`" ]; then source ${HOME}/.bashrc; fi
 
 usb_arg=`python3 generate_usb_arg.py`
 echo $usb_arg
