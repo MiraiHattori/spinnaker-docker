@@ -3,6 +3,7 @@
 
 if [ "$1" != "confirmed" ]; then
     echo "read the script"
+    exit
 fi
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
