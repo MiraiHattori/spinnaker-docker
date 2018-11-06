@@ -30,7 +30,3 @@ RUN apt-get install --no-install-recommends -y wget ros-kinetic-xmlrpcpp
 RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && cd ${WORKHOME}/catkin_ws && catkin build -c pointgrey_camera_driver ball_orbit_estimator"
 
 ### local changes ###
-
-ADD ./my_entrypoint.sh /
-ENTRYPOINT ["/my_entrypoint.sh"]
-CMD ["bash"]
