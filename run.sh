@@ -7,6 +7,14 @@ if [ ! -z "`cat ${HOME}/.bashrc | grep "^source .*setup\.bash *$"`" ]; then sour
 usb_arg=`python3 ./util/generate_usb_arg.py`
 echo $usb_arg
 
+sudo docker run -it --rm \
+    -w="/home/leus" \
+    --net="host" \
+    --env ROS_MASTER_URI="${ROS_MASTER_URI}" \
+    ${usb_arg} \
+future731/device_reset "$@"
+sleep 10
+
 if [ "$DISPLAY" == "localhost:10.0" ]; then
     sudo docker run -it --rm \
         --net=host \
