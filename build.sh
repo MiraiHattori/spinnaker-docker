@@ -8,7 +8,7 @@ cat Dockerfile.debug | sed -e '$ a \
 ADD ./entrypoint/device_reset.sh /\
 ENTRYPOINT ["/device_reset.sh"]\
 CMD ["bash"]' > Dockerfile.spinnaker_device_reset
-sudo docker build -f ./Dockerfile.spinnaker_device_reset --rm --tag=future731/device_reset .
+sudo docker build -f ./Dockerfile.spinnaker_device_reset --rm --tag=future731/spinnaker_device_reset .
 rm ./Dockerfile.spinnaker_device_reset
 
 # building device_reset image
