@@ -13,8 +13,8 @@ sudo docker run -it --rm \
     --env ROS_MASTER_URI="${ROS_MASTER_URI}" \
     ${usb_arg} \
 future731/device_reset "$@"
-sleep 10
 
+usb_arg=`python3 ./util/generate_usb_arg.py`
 if [ "$DISPLAY" == "localhost:10.0" ]; then
     sudo docker run -it --rm \
         --net=host \
