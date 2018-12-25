@@ -6,5 +6,8 @@
     local-name: ball_orbit_estimator
     uri: https://github.com/future731/ball_orbit_estimator.git
 - git:
+    local-name: ball_state_msgs
+    uri: https://github.com/future731/ball_state_msgs.git
+- git:
     local-name: jsk_recognition
     uri: https://github.com/jsk-ros-pkg/jsk_recognition.git

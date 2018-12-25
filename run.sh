@@ -12,7 +12,7 @@ sudo docker run -it --rm \
     --net="host" \
     --env ROS_MASTER_URI="${ROS_MASTER_URI}" \
     ${usb_arg} \
-future731/device_reset "$@"
+future731/spinnaker_device_reset "$@"
 
 usb_arg=`python3 ./util/generate_usb_arg.py`
 if [ "$DISPLAY" == "localhost:10.0" ]; then
