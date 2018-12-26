@@ -5,16 +5,6 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 if [ ! -z "`cat ${HOME}/.bashrc | grep "^source .*setup\.bash *$"`" ]; then source ${HOME}/.bashrc; fi
 
 usb_arg=`python3 ./util/generate_usb_arg.py`
-echo $usb_arg
-
-sudo docker run -it --rm \
-    -w="/home/leus" \
-    --net="host" \
-    --env ROS_MASTER_URI="${ROS_MASTER_URI}" \
-    ${usb_arg} \
-future731/spinnaker_device_reset "$@"
-
-usb_arg=`python3 ./util/generate_usb_arg.py`
 if [ "$DISPLAY" == "localhost:10.0" ]; then
     sudo docker run -it --rm \
         --net=host \
